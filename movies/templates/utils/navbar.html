@@ -1,0 +1,74 @@
+<!-- <nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="" width="30" height="24" class="d-inline-block align-text-top">
+      MOVIEFLEX
+    </a>
+  </div>
+</nav> -->
+<style>
+  .navbar .nav-link {
+    color: #222;
+    transition: color 0.2s ease;
+  }
+
+  .navbar .nav-link:hover {
+    color: rgb(136, 187, 47) !important;
+  }
+
+</style>
+<nav class="navbar bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand">MOVIEFLEX</a>
+    <div class="d-flex" role="search">
+      <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+              <a class="nav-link" href="{% url 'new_movies'%}">NEW MOVIES</a>
+              <a class="nav-link" href="{% url 'about' %}">ABOUT</a>
+              <a class="nav-link " href="{% url 'contact' %}">CONTACT</a>
+              <a class="nav-link " href="{% url 'help' %}">HELP</a>
+
+              {% if request.user.is_authenticated %}
+              <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                👤 {{ request.user.first_name|default:request.user.username }}
+              </a>
+
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="{% url 'profile_view' %}">
+                    Profile
+                  </a>
+                </li>
+                  <hr class="dropdown-divider">
+                  <li>
+                  <a class="dropdown-item" href="{% url 'faviorites' %}">
+                    faviorites❤️
+                  </a>
+                </li>
+              
+                  <hr class="dropdown-divider">
+                </li>
+                <li>
+                  <a class="dropdown-item text-danger" href="{% url 'logout_view' %}">
+                    Logout
+                  </a>
+                </li>
+              </ul>
+              </li>
+              {% else %}
+              <a class="nav-link btn btn-success " href="{% url 'login_view' %}">Login</a>
+              <a class="nav-link btn btn-success" href="{% url 'register_view' %}">Register</a>
+              {% endif %}
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </div>
+</nav>

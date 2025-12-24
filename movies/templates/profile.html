@@ -1,0 +1,59 @@
+{% extends 'utils/base.html' %}
+{% block start %}
+
+<div class="container mt-2 pt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+
+      <div class="card shadow-sm" style="border-radius:14px;">
+        <div class="card-body p-4">
+
+          <h3 class="text-center fw-bold mb-4">
+            👤 My Profile
+          </h3>
+
+          <!-- User Details -->
+          <ul class="list-group list-group-flush mb-4">
+            <li class="list-group-item">
+              <strong>First Name:</strong>
+              {{ request.user.first_name }}
+            </li>
+            <li class="list-group-item">
+              <strong>Last Name:</strong>
+              {{ request.user.last_name }}
+            </li>
+            <li class="list-group-item">
+              <strong>Email:</strong>
+              {{ request.user.email }}
+            </li>
+            <li class="list-group-item">
+              <strong>Username:</strong>
+              {{ request.user.username }}
+            </li>
+            <li class="list-group-item">
+              <strong>Joined On:</strong>
+              {{ request.user.date_joined|date:"d M Y" }}
+            </li>
+          </ul>
+
+          <!-- Action Buttons -->
+          <div class="d-grid gap-2">
+            <a href="{% url 'edit_profile' request.user.id %}" class="btn btn-outline-primary">
+              Edit Profile
+            </a>
+            <a href="#" class="btn btn-outline-secondary">
+              Change Password
+            </a>
+            <a href="{% url 'logout_view' %}" class="btn btn-danger">
+              Logout
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

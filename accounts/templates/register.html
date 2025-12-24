@@ -1,0 +1,93 @@
+{% extends 'utils/base.html' %}
+{% block start %}
+
+<div class="container mt-5 pt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+
+      <form method="POST"
+        class="card shadow-sm p-4"
+        style="border-radius:14px;"
+      >
+        {% csrf_token %}
+        {% include 'utils/alert.html' %}
+
+        <h3 class="text-center fw-bold mb-4">
+          Create Account
+        </h3>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">First Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="first_name"
+            placeholder="Enter first name"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Last Name</label>
+          <input
+            type="text"
+            class="form-control"
+            name="last_name"
+            placeholder="Enter last name"
+            required
+          >
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Email Address</label>
+          <input
+            type="email"
+            class="form-control"
+            name="email"
+            placeholder="Enter email"
+            required
+          >
+          <div class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label fw-semibold">Password</label>
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            placeholder="Enter password"
+            required
+          >
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">
+          Register
+        </button>
+
+        <div class="text-center mt-3">
+  <span class="text-muted">already have an account?</span>
+  <a href="{% url 'login_view' %}"
+     class="fw-semibold ms-1"
+     style="
+       text-decoration:none;
+       color:#0d6efd;
+       transition:color 0.2s ease;
+     "
+     onmouseover="this.style.color='#084298'"
+     onmouseout="this.style.color='#0d6efd'"
+  >
+    Login
+  </a>
+</div>
+
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

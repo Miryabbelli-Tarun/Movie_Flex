@@ -1,0 +1,56 @@
+{% extends 'utils/base.html' %}
+{% block start%}
+<div class="container mt-5 pt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+
+      <h2 class="fw-bold text-center mb-4">Help & Support</h2>
+
+      <div class="accordion" id="helpAccordion">
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+              How can I search for movies?
+            </button>
+          </h2>
+          <div id="q1" class="accordion-collapse collapse show">
+            <div class="accordion-body">
+              Use the search bar on the homepage to find movies by title.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+              Do I need an account to browse movies?
+            </button>
+          </h2>
+          <div id="q2" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              No, browsing movies is completely free and does not require an account.
+            </div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+              How often is movie data updated?
+            </button>
+          </h2>
+          <div id="q3" class="accordion-collapse collapse">
+            <div class="accordion-body">
+              Movies are updated regularly through the admin panel.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

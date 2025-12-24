@@ -1,0 +1,46 @@
+<footer class=" mt-5 pt-4" style="background-color:#b4b4b4ca;">
+  <div class="container">
+    <div class="row">
+
+      <!-- Brand -->
+      <div class="col-md-4 mb-3">
+        <h5 class="fw-bold">MOVIEFLEX</h5>
+        <p class="text-muted">
+          Discover movies, read reviews, and share your opinions.
+        </p>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="col-md-4 mb-3">
+        <h6 class="fw-semibold">Quick Links</h6>
+        <ul class="list-unstyled">
+          <li><a href="/" class="text-decoration-none">Home</a></li>
+          <li><a href="{% url 'new_movies' %}" class="text-decoration-none">New Movies</a></li>
+          <li><a href="{% url 'about' %}" class="text-decoration-none">About</a></li>
+          <li><a href="{% url 'contact' %}" class="text-decoration-none">Contact</a></li>
+          <li><a href="{% url 'help' %}" class="text-decoration-none">Help</a></li>
+        </ul>
+      </div>
+
+      <!-- Account -->
+      
+    </div>
+
+    <hr>
+
+    <!-- Bottom -->
+    <div class="d-flex justify-content-between align-items-center pb-3">
+      <small class="text-muted">
+        © {{ now|date:"Y" }} MovieFlex. All rights reserved.@Tarun
+      </small>
+
+      <!-- Social Icons -->
+      <div>
+        <a href="#" class="me-3 text-muted"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="me-3 text-muted"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="me-3 text-muted"><i class="fa-brands fa-twitter"></i></a>
+      </div>
+    </div>
+
+  </div>
+</footer>
