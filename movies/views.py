@@ -1,7 +1,7 @@
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import messages
-from movies.models import  Faviorites, Movies, Reviews
+from movies.models import  Faviorites, Movies, Reviews,Contact
 from django.contrib.auth.decorators import login_required
 from accounts.models import Register_user
 from django.contrib.auth.models import User
@@ -39,8 +39,20 @@ def new_movies(request):
 
 def about(request):
     return render(request,'about.html')
-
+@login_required(login_url='login_view')
 def contact(request):
+    if request.method=='POST':
+        name=request.POST.get('name')
+        email=request.POST.get('email')
+        problem=request.POST.get('problem')
+        Contact.objects.create(
+            name=name,
+            email=email,
+            problem=problem
+        )
+        messages.success(request,'We reach you soon...')
+        return redirect('contact')
+
     return render(request,'contact.html')
 
 def help(request):
@@ -73,10 +85,10 @@ def detail_view(request,id):
         'is_faviorite':is_faviorite,
     }
     return render(request,'detail_page.html',context)
-
+@login_required(login_url='login_view')
 def profile_view(request):
     return render(request,'profile.html')
-
+@login_required(login_url='login_view')
 def edit_profile(request,id):
     if request.method=='POST':
         first_name=request.POST.get('first_name')
@@ -90,7 +102,7 @@ def edit_profile(request,id):
         return redirect('edit_profile',id=id)
 
     return render(request,'edit_profile.html')
-
+@login_required(login_url='login_view')
 def faviorites(request):
     # user=User.objects.get(id=request.user.id)
     
@@ -100,6 +112,7 @@ def faviorites(request):
         'faviorites':faviorites
     }
     return render(request,'faviorites.html',context)
+@login_required(login_url='login_view')
 def add_to_faviorites(request,id):
     user=User.objects.get(id=request.user.id) #it used because we have two tables User and Register_user but we use User because request.user use the User table
     movie=Movies.objects.get(id=id)

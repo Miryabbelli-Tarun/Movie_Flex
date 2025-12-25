@@ -9,11 +9,19 @@
     {% for fav in faviorites %}
     <div class="col-md-3 mb-4">
       <div class="card shadow-sm h-100" style="border-radius: 12px">
+        {% if fav.movie.poster %}
         <img
           src="{{ fav.movie.poster.url }}"
           class="card-img-top"
           style="height: 280px; object-fit: cover"
         />
+        {% else %}
+        <img
+          src=""
+          class="card-img-top"
+          style="height: 280px; object-fit: cover"
+        />
+        {% endif %}
         <div class="card-body">
           <h6 class="fw-bold">{{ fav.movie.title }}</h6>
           <a
