@@ -38,7 +38,7 @@ def new_movies(request):
     return render(request,'new_movies.html',context)
 
 def about(request):
-    return render(request,'about.html')
+    return render(request,'About.html')
 @login_required(login_url='login_view')
 def contact(request):
     if request.method=='POST':
@@ -53,10 +53,10 @@ def contact(request):
         messages.success(request,'We reach you soon...')
         return redirect('contact')
 
-    return render(request,'contact.html')
+    return render(request,'Contact.html')
 
 def help(request):
-    return render(request,'help.html')
+    return render(request,'Help.html')
 
 @login_required(login_url='login_view')
 def detail_view(request,id):
